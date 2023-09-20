@@ -1,12 +1,11 @@
 const buttonNewTask = document.querySelector(".new-task button")
 const taskBox = document.querySelector(".task-box")
-buttonNewTask.addEventListener("click", addTask)
 const newTaskInput = document.querySelector(".new-task input")
 
+buttonNewTask.addEventListener("click", addTask)
 function addTask() {
 
     event.preventDefault()
-    console.log(newTaskInput.value)
     const taskItem = document.createElement("div")
     taskItem.classList.add("task-item")
 
@@ -28,6 +27,15 @@ function addTask() {
     buttonTrash.appendChild(trashItem)
     taskBox.appendChild(taskItem)
 
+    trashItem.addEventListener("click", 
+    deleteTask)
+    
+
     newTaskInput.value = ""
 
 } 
+function deleteTask(e){
+    e.target.parentElement.parentElement.remove()
+   console.log(e)
+}
+
